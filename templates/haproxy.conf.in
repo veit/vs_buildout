@@ -1,0 +1,51 @@
+global
+  maxconn  1024
+  user ${haproxy-config:user}
+  group ${haproxy-config:group}
+  daemon
+  nbproc 1
+  spread-checks 3
+  ulimit-n 65536
+
+defaults
+  mode http
+
+  # The zope instances have maxconn 1, and it is important that
+  # unused/idle connections are closed as soon as possible.
+  option httpclose
+
+  # Remove requests from the queue if people press stop button
+  option abortonclose
+
+  retries 3
+  option redispatch
+  monitor-uri /haproxy-ping
+
+  timeout connect 7s
+  timeout queue   15s
+  timeout client  300s
+  timeout server  300s
+
+  stats enable
+  stats uri /haproxy-status
+  stats refresh 60s
+  stats realm Haproxy\ statistics
+
+frontend zeocluster
+  bind ${haproxy-config:frontend-host}:${haproxy-config:frontend-port}
+  default_backend zope
+
+  option httplog
+  log 127.0.0.1:1514 local6
+
+
+# Load balancing over the zope instances
+backend zope
+  appsession __ac len 32 timeout 1d
+  balance roundrobin
+  cookie sid insert nocache indirect
+  option httpchk GET /
+
+  server instance 127.0.0.1:8010 cookie p1 check maxconn 1 rise 1
+  server instance2 127.0.0.1:8020 cookie p2 check maxconn 1 rise 1
+
