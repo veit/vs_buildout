@@ -120,7 +120,7 @@ Install `Macports <http://www.macports.org/>`_.
 
 Then the following installs dependencies::
 
-	$ sudo port install python27 py27-distribute wget 
+	$ sudo port install python27 py27-distribute wget pcre
 
 When you run ``bootstrap.py``use the following command to make sure you are using Python interpreter from Macports::
 
