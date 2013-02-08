@@ -48,7 +48,7 @@ Creating Plone 4 buildout installation
 
 You need to run (please see remarks regarding your operating system below)::
 
- $ python2.7 bootstrap.py -dc deploy.cfg
+ $ python2.7 bootstrap.py -c devel.cfg
 
 This will create ``bin`` folder and ``bin/buildout`` script. If you any time want to change Python interpreter
 associated with buildout, or you need to update ``buildout`` script itself to newer version please rerun ``bootsrap.py``.
@@ -56,7 +56,7 @@ associated with buildout, or you need to update ``buildout`` script itself to ne
 Now you can run buildout script which will download all Python packages
 (.egg files) and create ``parts/`` and ``var/`` folder structure ::
 
-  $ ./bin/buildout -c deploy.cfg
+  $ ./bin/buildout -c devel.cfg
 
 If this succesfully completes you can start buildout in foreground mode (Press *CTRL+C* to terminate)::
 
@@ -77,17 +77,16 @@ Next steps
 Creating your first add-on
 ==========================
 
-Plone 4 buildout comes with ``./bin/zopeskel`` command for creating Plone add-ons.
+Plone 4 buildout comes with ``bin/zopeskel`` command for creating Plone add-ons.
 
 Create theme ::
 
     $ cd src
     $ ../bin/zopeskel plone_basic
-    $ cd my.theme/src
 	
 Create Archetypes based content types package::
 
-	$ ./bin/zopeskel archetype vs.registration
+	$ ../bin/zopeskel archetype vs.registration
 
 More info
 
@@ -122,9 +121,9 @@ Then the following installs dependencies::
 
 	$ sudo port install python27 py27-distribute wget pcre
 
-When you run ``bootstrap.py``use the following command to make sure you are using Python interpreter from Macports::
+When you run ``bootstrap.py`` use the following command to make sure you are using Python interpreter from Macports::
 
-	$ python2.7 bootstrap.py
+	$ python2.7 bootstrap.py -dc devel.cfg
 
 Windows
 =======
