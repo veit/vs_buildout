@@ -21,9 +21,7 @@ What you need in order to use developer buildout with Plone 4
 
 * GCC compiler suite to build native Python extensions (Zope contains C code for optimized parts)
 
-* Python 2.6 (other versions are *not* ok for Plone 4)
-
-* Python Imaging Library installed for your Python interpreter (more below)
+* Python 2.7
 
 * Python `Distribute <http://pypi.python.org/pypi/distribute>`_ installation tool, provided by your operating system
   or installed by hand
@@ -37,34 +35,20 @@ This buildout provides
 
 * Zope start up scripts (one instance)
 
-* ``paster`` command for creating Plone add-ons (different from system-wide installation)
+* ``zopeskel`` command for creating Plone add-ons (different from system-wide installation)
 
 * `test <http://plone.org/documentation/manual/plone-community-developer-documentation/testing-and-debugging/unit-testing>`_ command for running automatic test suites 
 
 * `i18ndude <http://pypi.python.org/pypi/i18ndude>`_  for managing text string translations in Python source code 
-
-* `omelette <http://pypi.python.org/pypi/collective.recipe.omelette>`_ buildout recipe which makes Python egg source code more browseable by using symlinks
 
 * `mr.developer <http://pypi.python.org/pypi/mr.developer>`_ command for managing source code checkouts and updates with buildout repeatable manner
 
 Creating Plone 4 buildout installation
 --------------------------------------
 
-Install ZopeSkel template package for your system-wide Python using Distribute::
+You need to run (please see remarks regarding your operating system below)::
 
- easy_install ZopeSkel
- 
-... or upgrade existing installation::
-
- easy_install -U ZopeSkel
-
-You probably got here by running something like (replace *myplonefoldername* with the target folder where you want to Plone to be installed)::
-
- zopeskel plone4_buildout vs_buildout
-
-Now, you need to run (please see remarks regarding your operating system below)::
-
- python2.6 bootstrap.py -dc deploy.cfg
+ $ python2.7 bootstrap.py -dc deploy.cfg
 
 This will create ``bin`` folder and ``bin/buildout`` script. If you any time want to change Python interpreter
 associated with buildout, or you need to update ``buildout`` script itself to newer version please rerun ``bootsrap.py``.
@@ -72,12 +56,12 @@ associated with buildout, or you need to update ``buildout`` script itself to ne
 Now you can run buildout script which will download all Python packages
 (.egg files) and create ``parts/`` and ``var/`` folder structure ::
 
-  ./bin/buildout -c deploy.cfg
+  $ ./bin/buildout -c deploy.cfg
 
 If this succesfully completes you can start buildout in foreground mode (Press *CTRL+C* to terminate)::
 
-  ./bin/zeoserver start
-  ./bin/instance1 start 
+  $ ./bin/zeoserver start
+  $ ./bin/instance1 start 
 
 Now you can login to your site
 
@@ -93,27 +77,21 @@ Next steps
 Creating your first add-on
 ==========================
 
-Plone 4 buildout comes with ``./bin/paster`` command for creating Plone add-ons.
+Plone 4 buildout comes with ``./bin/zopeskel`` command for creating Plone add-ons.
 
-.. note ::
+Create theme ::
 
-	When working with Plone add-ons, use paster command from buildout bin folder, not the system wide paster command.
-
-Create theme (applies for Plone 4 also)::
-	
-	./bin/zopeskel plone3_theme vs.theme
+    $ cd src
+    $ ../bin/zopeskel plone_basic
+    $ cd my.theme/src
 	
 Create Archetypes based content types package::
 
-	./bin/zopeskel archetype vs.atcontent
-
-Create other Plone customizations::
-
-	./bin/zopeskel plone vs.package
+	$ ./bin/zopeskel archetype vs.registration
 
 More info
 
-* `Instructions how to use Paster command to create your own add-ons <http://collective-docs.plone.org/tutorials/paste.html>`_ 
+* `Bootstrapping Plone add-on development <http://developer.plone.org/getstarted/paste.html>`_ 
 
 Managing source code checkouts with buildout
 ============================================
@@ -131,8 +109,7 @@ Tested for Ubuntu 10.10.
 
 Install prerequisitements::
 
-	sudo apt-get install python2.6 python-imaging wget build-essential python2.6-dev python-setuptools
-	easy_install ZopeSkel
+	$ sudo apt-get install python2.7 wget build-essential python2.7-dev python-setuptools
 
 OSX
 ===
@@ -143,12 +120,11 @@ Install `Macports <http://www.macports.org/>`_.
 
 Then the following installs dependencies::
 
-	sudo port install python26 py26-pil py26-distribute wget 
-	easy_install ZopeSkel
+	$ sudo port install python27 py27-distribute wget 
 
 When you run ``bootstrap.py``use the following command to make sure you are using Python interpreter from Macports::
 
-	python2.6 bootstrap.py
+	$ python2.7 bootstrap.py
 
 Windows
 =======
@@ -161,9 +137,3 @@ Please read
 
 * http://plone.org/documentation/kb/using-buildout-on-windows
 
-Other
------
-
-The orignal copy of these instructions is available at
-
-* https://svn.plone.org/svn/collective/ZopeSkel/trunk/zopeskel/templates/plone4_buildout/README.txt
