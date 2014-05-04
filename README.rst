@@ -1,5 +1,5 @@
 ================
-Plone 4 buildout
+Plone 5 buildout
 ================
 
 .. contents ::
@@ -15,7 +15,7 @@ developing your own Plone add-ons.
 Prerequisitements
 -----------------
 
-What you need in order to use developer buildout with Plone 4:
+What you need in order to use developer buildout with Plone 5:
 
 * Experience using command line tools
 * Experience using a text editor to work with configuration files
@@ -23,8 +23,6 @@ What you need in order to use developer buildout with Plone 4:
 * GCC compiler suite to build native Python extensions (Zope contains C code for
   optimized parts)
 * Python 2.7
-* Python `Distribute <http://pypi.python.org/pypi/distribute>`_ installation
-  tool, provided by your operating system or installed by hand
 
 Read below from operating system specific instructions how to install these
 dependencies.
@@ -38,18 +36,20 @@ This buildout provides
 * ``zopeskel`` command for creating Plone add-ons (different from system-wide
   installation)
 * `test
-  <http://plone.org/documentation/manual/plone-community-developer-documentation/testing-and-debugging/unit-testing>`_
+  <http://docs.plone.org/manage/deploying/testing_tuning/testing_and_debugging/unit_testing.html>`_
   command for running automatic test suites 
 * `i18ndude <http://pypi.python.org/pypi/i18ndude>`_  for managing text string
   translations in Python source code 
 * `mr.developer <http://pypi.python.org/pypi/mr.developer>`_ command for
   managing source code checkouts and updates with buildout repeatable manner
 
-Creating Plone 4 buildout installation
+Creating Plone 5 buildout installation
 --------------------------------------
 
 You need to run (please see remarks regarding your operating system below)::
 
+ $ git clone https://github.com/veit/vs_buildout.git
+ $ git checkout -t origin/5.0
  $ python2.7 bootstrap.py -c devel.cfg
 
 This will create ``bin`` folder and ``bin/buildout`` script. If you any time
@@ -68,7 +68,7 @@ If this succesfully completes you can start buildout in foreground mode (Press
   $ ./bin/zeoserver start
   $ ./bin/instance1 start 
 
-Now you can login to your site
+Now you can login to your site::
 
   http://localhost:8010
 
@@ -76,7 +76,7 @@ The default user is ``admin`` with password ``admin``.
 After initial start-up admin password is stored in Data.fs databse file and the
 value in ``buildout.cfg`` is ignored.
 Please follow `these instructions to change the admin password
-<http://manage.plone.org/documentation/kb/changing-the-admin-password>`_.
+<http://plone.org/documentation/kb-old/changing-the-admin-password>`_.
 
 Creating your first add-on
 ==========================
@@ -95,7 +95,7 @@ Create Archetypes based content types package::
 More info
 
 * `Bootstrapping Plone add-on development
-  <http://developer.plone.org/getstarted/paste.html>`_ 
+  <http://docs.plone.org/develop/addons/paste.html>`_ 
 
 Managing source code checkouts with buildout
 ============================================
@@ -111,7 +111,7 @@ Operating system specific instructions
 Ubuntu/Debian
 =============
 
-Tested for Ubuntu 10.10.
+Tested for Ubuntu 14.04.
 
 Install prerequisitements::
 
@@ -120,13 +120,13 @@ Install prerequisitements::
 OSX
 ===
 
-Install `OSX development tools (XCode) <http://developer.apple.com/>`_ from Apple.
+Install `OSX development tools (XCode) <https://developer.apple.com/xcode/>`_ from Apple.
 
 Install `Macports <http://www.macports.org/>`_.
 
 Then the following installs dependencies::
 
-	$ sudo port install python27 py27-distribute wget
+	$ sudo port install python27 wget
 
 When you run ``bootstrap.py`` use the following command to make sure you are
 using Python interpreter from Macports::
@@ -142,5 +142,5 @@ Python extensions.
 
 Please read
 
-* http://plone.org/documentation/kb/using-buildout-on-windows
+* http://plone.org/documentation/kb/running-plone-on-windows
 
