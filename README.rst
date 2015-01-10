@@ -63,7 +63,7 @@ files) and create ``parts/`` and ``var/`` folder structure::
   $ ./bin/buildout -c devel.cfg
 
 If this succesfully completes you can start innstance in foreground mode (Press
-*CTRL+C* to terminate)::
+``ctrl+c`` to terminate)::
 
   $ ./bin/instance fg
 
