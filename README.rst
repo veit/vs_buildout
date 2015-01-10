@@ -61,11 +61,10 @@ files) and create ``parts/`` and ``var/`` folder structure::
 
   $ ./bin/buildout -c devel.cfg
 
-If this succesfully completes you can start buildout in foreground mode (Press
-*CTRL+C* to terminate)::
+If this succesfully completes you can start innstance in foreground mode (Press
+``ctrl+c`` to terminate)::
 
-  $ ./bin/zeoserver start
-  $ ./bin/instance1 start 
+  $ ./bin/instance fg
 
 Now you can login to your site::
 
