@@ -49,7 +49,11 @@ Creating Plone 5 buildout installation
 You need to run (please see remarks regarding your operating system below)::
 
  $ git clone https://github.com/veit/vs_buildout.git
+ …
+ $ cd vs_buildout
  $ git checkout -t origin/5.0
+ …
+ Switched to a new branch '5.0'
  $ python2.7 bootstrap.py -c devel.cfg
 
 This will create ``bin`` folder and ``bin/buildout`` script. If you any time
