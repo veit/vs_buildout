@@ -48,18 +48,16 @@ Creating Plone 4 buildout installation
 
 You need to run (please see remarks regarding your operating system below)::
 
+ $ virtualenv --system-site-packages venv
+ $ cd venv
+ $ ./bin/pip install zc.buildout
+ $ cd ../
  $ git clone https://github.com/veit/vs_buildout.git
- $ python2.7 bootstrap.py -c devel.cfg
+ $ cd vs_buildout
+ $../venv/bin/buildout -c devel.cfg
 
-This will create ``bin`` folder and ``bin/buildout`` script. If you any time
-want to change Python interpreter associated with buildout, or you need to
-update ``buildout`` script itself to newer version please rerun
-``bootstrap.py``.
-
-Now you can run buildout script which will download all Python packages (.egg
-files) and create ``parts/`` and ``var/`` folder structure::
-
-  $ ./bin/buildout -c devel.cfg
+This will download all Python packages (.egg files) and create ``parts/`` and
+``var/`` folder structure.
 
 If this succesfully completes you can start innstance in foreground mode (Press
 ``ctrl+c`` to terminate)::
