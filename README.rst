@@ -91,12 +91,13 @@ Create theme ::
 
     $ cd src
     $ ../bin/mrbob -O my.theme bobtemplates:plone_addon
-    ...
+    …
     --> What kind of packagewould you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]: Theme
 	
 Create Archetypes based content types package::
 
     $ ../bin/mrbob -O my.type bobtemplates:plone_addon
+    …
     --> What kind of packagewould you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]: Theme
 
 More info
@@ -122,7 +123,7 @@ Tested for Ubuntu 14.04.
 
 Install prerequisitements::
 
-	$ sudo apt-get install python2.7 wget build-essential python2.7-dev python-setuptools
+    $ sudo apt-get install python2.7 wget build-essential python2.7-dev python-setuptools
 
 OSX
 ===
@@ -133,12 +134,12 @@ Install `Macports <http://www.macports.org/>`_.
 
 Then the following installs dependencies::
 
-	$ sudo port install python27 wget
+    $ sudo port install python27 wget
 
 When you run ``bootstrap.py`` use the following command to make sure you are
 using Python interpreter from Macports::
 
-	$ python2.7 bootstrap.py -dc devel.cfg
+    $ python2.7 bootstrap.py -dc devel.cfg
 
 Windows
 =======
