@@ -33,7 +33,7 @@ Features
 This buildout provides
 
 * Zope start up scripts (one instance)
-* ``zopeskel`` command for creating Plone add-ons (different from system-wide
+* ``mrbob`` command for creating Plone add-ons (different from system-wide
   installation)
 * `test
   <http://docs.plone.org/manage/deploying/testing_tuning/testing_and_debugging/unit_testing.html>`_
@@ -85,16 +85,19 @@ Please follow `these instructions to change the admin password
 Creating your first add-on
 ==========================
 
-Plone 4 buildout comes with ``bin/zopeskel`` command for creating Plone add-ons.
+Plone 4 buildout comes with ``bin/mrbob`` command for creating Plone add-ons.
 
 Create theme ::
 
     $ cd src
-    $ ../bin/zopeskel plone_basic
+    $ ../bin/mrbob -O my.theme bobtemplates:plone_addon
+    ...
+    --> What kind of packagewould you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]: Theme
 	
 Create Archetypes based content types package::
 
-	$ ../bin/zopeskel archetype vs.registration
+    $ ../bin/mrbob -O my.type bobtemplates:plone_addon
+    --> What kind of packagewould you like to create? Choose between 'Basic', 'Dexterity', and 'Theme'. [Basic]: Theme
 
 More info
 
