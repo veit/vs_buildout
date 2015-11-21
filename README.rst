@@ -36,7 +36,7 @@ This buildout provides
 * ``mrbob`` command for creating Plone add-ons (different from system-wide
   installation)
 * `test
-  <http://docs.plone.org/manage/deploying/testing_tuning/testing_and_debugging/unit_testing.html>_
+  <http://docs.plone.org/manage/deploying/testing_tuning/testing_and_debugging/unit_testing.html>`_
   command for running automatic test suites 
 * `i18ndude <http://pypi.python.org/pypi/i18ndude>`_  for managing text string
   translations in Python source code 
