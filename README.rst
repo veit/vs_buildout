@@ -101,8 +101,8 @@ Create Archetypes based content types package::
 
 More info
 
-* `Bootstrapping Plone add-on development
-  <http://docs.plone.org/develop/addons/paste.html>`_ 
+* `Develop Plone Add ons
+  <http://docs.plone.org/develop/addons/index.html>`_
 
 Managing source code checkouts with buildout
 ============================================
