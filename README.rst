@@ -48,7 +48,8 @@ Creating Plone 5 buildout installation
 
 You need to run (please see remarks regarding your operating system below)::
 
- $ virtualenv --system-site-ackages venv
+ $ virtualenv --system-site-packages venv
+ $ cd venv
  $ ./bin/pip install zc.buildout
  $ cd ../
  $ git clone https://github.com/veit/vs_buildout.git
