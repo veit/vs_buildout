@@ -54,7 +54,7 @@ You need to run (please see remarks regarding your operating system below)::
  $ cd ../
  $ git clone https://github.com/veit/vs_buildout.git
  $ cd vs_buildout
- $../venv/bin/buildout -c devel.cfg
+ $ ../venv/bin/buildout -c devel.cfg
 
 This will download all Python packages (.egg files) and create ``parts/`` and
 ``var/`` folder structure.
