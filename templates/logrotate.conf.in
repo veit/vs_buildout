@@ -1,7 +1,6 @@
 daily
 missingok
 rotate 14
-mail zope-logs@veit-schiele.de
 compress
 delaycompress
 notifempty
